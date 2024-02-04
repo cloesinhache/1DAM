@@ -1,0 +1,39 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "07.concesionario.schema.json",
+    "type": "object",
+    "title": "concesionario",
+    "description": "Listado de modelos y coches",
+    "properties": {
+        "concesionario": {"type": "string"},
+        "modelos": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "id": {"type": "integer"},
+                    "nombre": {"type": "string"},
+                    "cilindrada": {"type": "integer", "minimum": 0},
+                    "cv": {"type": "integer", "minimum": 0},
+                    "velmax": {"type": "integer", "minimum": 0},
+                    "plazas": {"type": "integer", "minimum": 0,"maximum":7}
+                },
+                "required": ["id"],
+                "additionalProperties": false
+            }
+        },
+        "coches": {
+            "type": "array",
+            "items": {
+                "type":"object",
+                "properties":{
+                    "id": {"type": "integer","minimum":0},
+                    "modelo": {"type": "integer","minimum":0},
+                    "tipo": {"type": "string","enum":["nuevo","2mano","km0"]},
+                    "reservado": {"type": "boolean"}
+                },
+                "required":["id","modelo"]
+            }
+        }
+    }
+}

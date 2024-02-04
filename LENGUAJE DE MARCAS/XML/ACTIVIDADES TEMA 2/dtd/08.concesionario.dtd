@@ -1,0 +1,24 @@
+<!ELEMENT concesionario (clientes,modelo+,coche+)>
+<!ATTLIST concesionario marca CDATA #REQUIRED>
+<!ELEMENT clientes (cliente+)>
+<!ELEMENT cliente (dni,nombre,direccion)>
+<!ATTLIST cliente id ID #REQUIRED>
+<!ELEMENT dni (#PCDATA)>
+<!ELEMENT nombre (#PCDATA)>
+<!ELEMENT direccion (domicilio,cp,pblacion)>
+<!ELEMENT domicilio (#PCDATA)>
+<!ELEMENT cp (#PCDATA)>
+<!ELEMENT poblacion (#PCDATA)>
+<!ELEMENT modelo (cilindrada,cv,velmax,plazas)>
+<!ATTLIST modelo id     ID    #REQUIRED
+                 nombre CDATA #REQUIRED>
+<!ELEMENT cilindrada (#PCDATA)>
+<!ELEMENT cv (#PCDATA)>
+<!ELEMENT velmax (#PCDATA)>
+<!ELEMENT plazas (#PCDATA)>
+<!ELEMENT coches EMPTY>
+<!ATTLIST coches id        ID       #REQUIRED
+                 modelo    IDREF    #REQUIRED
+                 tipo      CDATA    #REQUIRED
+                 reservado IDREF    #IMPLIED
+                 km        NMTOKEN  #IMPLIED>

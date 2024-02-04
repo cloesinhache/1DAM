@@ -1,0 +1,67 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "08.concesionario.schema.json",
+    "type": "object",
+    "title": "concesionario",
+    "description": "Listado de clientes, modelos y coches",
+    "properties": {
+        "concesionario": {"type": "string"},
+        "clientes":{
+            "type":"array",
+            "items":{
+                "type":"object",
+                "properties":{
+                    "id":{"type":"integer"},
+                    "dni":{"type":"string"},
+                    "nombre":{"type":"string"},
+                    "direccion":{
+                        "type":"object",
+                        "properties":{
+                            "domicilio":{"type":"string"},
+                            "cp":{"type":"integer","minimum":0},
+                            "poblacion":{"type":"string"}
+                        }
+                    }
+                },
+            "required":["id","dni"],
+            "additionalProperties":false
+            }
+           
+        },
+        "modelos": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "id": {"type": "integer"},
+                    "nombre": {"type": "string"},
+                    "cilindrada": {"type": "integer"},
+                    "cv": {"type": "integer"},
+                    "velmax": {"type": "integer"},
+                    "plazas": {"type": "integer"}
+                },
+                "required": ["id"],
+                "additionalProperties": false
+            }
+        },
+        "coches": {
+            "type": "array",
+            "items": {
+                "type":"object",
+                "properties":{
+                    "id": {"type": "integer"},
+                    "modelo": {"type": "integer"},
+                    "tipo": {"type": "string"},
+                    "reservado": {"type": "boolean"},
+                    "if": {
+                        "properties": {"reservado":true}
+                    },
+                    "then":{
+                        "properties": {"reservado": {"type":"number"}}
+               
+                    }
+                }, "required":["id","modelo"]
+            }
+        }
+    }
+}

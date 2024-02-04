@@ -1,0 +1,86 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "11.grafico.schema.json",
+  "type": "object",
+  "title":"Grafico",
+  "description":"Listado de elementos que tiene una grafica",
+  "properties": {
+    "unidad": {"type": "string","enum": ["cm"]},
+    "entidades": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "oneOf": [
+          {
+            "properties": {
+              "id":{"type":"integer"},
+              "tipo": {"const": "punto"},
+              "coord": {
+                "type": "array",
+                "items": {"type": "number"},
+                "minItems": 2,
+                "maxItems": 2
+              }
+            },
+            "required": ["id","coord"]
+          },
+          {
+            "properties": {
+              "id":{"type":"integer"},
+              "tipo": {"const":"recta"},
+              "ini": {
+                "type":"array",
+                "items": {"type":"number"},
+                "minItems": 2,
+                "maxItems": 2
+              },
+              "fin": {
+                "type": "array",
+                "items": {"type": "number"},
+                "minItems": 2,
+                "maxItems": 2
+              }
+            },
+            "required": ["id","ini","fin"]
+          },
+          {
+            "properties": {
+              "id":{"type":"integer"},
+              "tipo": {"const": "circunferencia"},
+              "centro": {
+                "type": "array",
+                "items": {"type":"number"},
+                "minItems": 2,
+                "maxItems": 2
+              },
+              "r": {"type":"number"}
+            },
+            "required": ["centro","r"]
+          },
+          {
+            "properties": {
+              "id":{"type":"integer"},
+              "tipo": {"const": "rectangulo"},
+              "ini": {
+                "type": "array",
+                "items": {"type":"number"},
+                "minItems": 2,
+                "maxItems": 2
+              },
+              "fin": {
+                "type": "array",
+                "items": {"type": "number"},
+                "minItems": 2,
+                "maxItems": 2
+              }
+            },
+            "required": ["id","ini","fin"]       
+          }
+        ]
+
+      }
+    }
+  },
+  "required": ["unidad","entidades"],
+  "additionalProperties": false
+}

@@ -1,0 +1,60 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "05.facturas.schema.json",
+    "type": "object",
+    "title": "Supermercado",
+    "description": "Listado de cliente y facturas de un supermercado",
+    "properties": {
+        "empresa": {"type": "string"},
+        "clientes": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "id": {"type": "integer"},
+                    "dni": {"type": "string"},
+                    "nombre": {"type": "string"},
+                    "direccion": {
+                        "type": "object",
+                        "properties": {
+                            "domicilio": {"type":"string"},
+                            "cp":"integer",
+                            "poblacion":"string"
+                        }
+                    }
+                },
+                "required":["id","dni"],
+                "additionalProperties":false   
+                }
+            },
+            "facturas": {
+                "type":"array",
+                "items":{
+                    "type":"object",
+                    "properties":{
+                        "codigo":{"type":"integer"},
+                        "cliente":{"type":"integer"},
+                        "fecha":{"type":"string","format":"date"},
+                        "descuento":{"type":"integer"},
+                        "contenido":{
+                            "type":"array",
+                            "items":{
+                                "type":"object",
+                                "properties":{
+                                    "producto":{"type":"string"},
+                                    "precio":{"type":"number"},
+                                    "cantidad":{"type":"number"},
+                                    "iva":{"type":"string"}
+
+                                }
+                            }
+                        }
+
+                    },
+                    "required":["codigo","cliente","contenido"],
+                    "additionalProperties":false
+                }   
+            }
+        },
+        "required":["empresa","cliente","factura"]
+}

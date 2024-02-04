@@ -1,0 +1,13 @@
+{
+    "yaml.schemas": 
+        {
+        "../JSON/schemas/05.facturas.schema.json": ["05.facturas.yaml"],
+        "../JSON/schemas/07.concesionario.schema.json": ["07.concesionario.yaml"],
+        "../JSON/schemas/08.concesionario.schema.json": ["08.concesionario.yaml"],
+        "../JSON/schemas/11.grafico.schema.json": ["11.grafico.yaml"]
+
+    
+    
+
+    }
+}

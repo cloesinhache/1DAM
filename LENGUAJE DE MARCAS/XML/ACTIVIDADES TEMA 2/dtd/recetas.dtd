@@ -1,0 +1,15 @@
+<!-- Este es el dtd de recetas.xml-->
+<!ELEMENT cadena (recetas+|restaurante+)>
+<!ATTLIST cadena  nombre   CDATA    #REQUIRED>
+<!ELEMENT recetas (receta+)>
+<!ELEMENT receta (ingrediente+)>
+<!ATTLIST receta id           ID       #REQUIRED
+                 nombre       CDATA    #REQUIRED
+                 preparacion  NMTOKEN  #REQUIRED>
+<!ELEMENT ingrediente EMPTY>
+<!ATTLIST ingrediente nombre   CDATA              #REQUIRED
+                      unidad   (pieza|gramo|cc)   #REQUIRED
+                      cantidad  NMTOKEN           #REQUIRED>
+<!ELEMENT 
+<!ATTLIST restaurante   id       ID       #REQUIRED
+                        nombre   NMTOKEN  #REQUIRED>                  

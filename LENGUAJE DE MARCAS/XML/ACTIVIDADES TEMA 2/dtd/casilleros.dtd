@@ -1,0 +1,22 @@
+<!-- Esta  es la gramática de casilleros.xml-->
+<!ELEMENT claustro (profesor+|lector+)>
+<!ATTLIST clautro centro CDATA #REQUIRED>
+<!ENTITY % datosprofesor "(apelativo?, nombre, apellidos)">
+<!ENTITY % attrsprofesor "id          ID     #REQUIRED
+                          casillero   CDATA  #IMPLIED">
+
+<!--El profesor puede tener o no apelativo. Los profesores sustitutos
+    no tienen departamento porque su departamento es el mismo que del que sustituye-->
+<!ELEMENT profesor (%datosprofesor; departamento?)>
+<!ATTLIST profesor %attrsprofesor;
+                    sustituye   IDREF    #IMPLIED>
+
+<!ELEMENT lector %datosprofesor;>
+<!ELEMENT lector %attrsprofesor;>
+
+<!ELEMENT apelativo    (#PCDTA)>
+<!ELEMENT nombre       (#PCDTA)>
+<!ELEMENT apellidos    (#PCDTA)>
+<!ELEMENT departamento (#PCDTA)>
+<!ENTITY ByG "Biología y Geografía">
+<!ENTITY HIS "Historia

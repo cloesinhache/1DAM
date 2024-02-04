@@ -1,0 +1,27 @@
+<!-- DTD  del ejercicio 5(facturas)-->
+
+<!ELEMENT facturacion (clientes,inventario,factura)>
+<!ATTLIST facturacion empresa CDATA #REQUIRED>
+<!ELEMENT clientes (cliente+)>
+<!ELEMENT cliente (dni,nombre,direccion)>
+<!ATTLIST cliente id ID #REQUIRED>
+<!ELEMENT dni (#PCDATA)>
+<!ELEMENT nombre (#PCDATA)>
+<!ELEMENT direccion (domicilio,cp,poblacion)>
+<!ELEMENT domicilio (#PCDATA)>
+<!ELEMENT cp (#PCDATA)>
+<!ELEMENT poblacion (#PCDATA)>
+<!ELEMENT inventario (producto+)>
+<!ELEMENT producto EMPTY>
+<!ATTLIST producto codigo ID      #REQUIRED
+                   nombre NMTOKEN #REQUIRED
+                   iva    NMTOKEN #REQUIRED>
+<!ELEMENT factura EMPTY>
+<!ATTLIST factura   codigo    NMTOKEN #REQUIRED
+                    cliente   IDREF   #REQUIRED
+                    fecha     NMTOKEN #IMPLIED
+                    descuento NMTOKEN #REQUIRED>
+<!ELEMENT item EMPTY>
+<!ATTLIST item  producto IDREF #REQUIRED
+                precio   NMTOKEN #REQUIRED
+                cantidad NMTOKEN #REQUIRED>

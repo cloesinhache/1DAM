@@ -1,0 +1,21 @@
+{
+    "json.schemas": [
+        {
+            "fileMatch": ["05.facturas.json"],
+            "url": "/schemas/05.facturas.schema.json"
+        },
+        {
+            "fileMatch": ["07.concesionario.json"],
+            "url": "/schemas/07.concesionario.schema.json"
+        },
+        {
+            "fileMatch": ["08.concesionario.json"],
+            "url": "/schemas/08.concesionario.schema.json"
+        },
+        {
+            "fileMatch": ["11.grafico.json"],
+            "url": "/schemas/11.grafico.schema.json",
+           
+        },
+    ],
+}
